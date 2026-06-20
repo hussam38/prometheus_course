@@ -1,6 +1,6 @@
-# Prometheus Basics
+# Prometheus
 
-A hands-on demo repository covering core Prometheus concepts, from running it in a container to dynamic EC2 service discovery on AWS.
+A hands-on demo repository covering core Prometheus concepts.
 
 ---
 
@@ -11,15 +11,18 @@ A hands-on demo repository covering core Prometheus concepts, from running it in
 | 1 | **Container Setup** | Run Prometheus via Docker Compose with a persistent volume |
 | 2 | **Basic Configuration** | Static scrape targets with custom intervals (`prometheus.yml`) |
 | 3 | **Python App Monitoring** | Flask app instrumented with `prometheus_client` (Counter metric) |
-| 4 | **Java App Monitoring** | Spring Boot app with Micrometer + Actuator exposing `/actuator/prometheus` |
+| 4 | **NodeJs App Monitoring** | Node app instrumented with `prometheus_client` (Counter metric) |
+| 5 | **Java App Monitoring** | Spring Boot app with Micrometer + Actuator exposing `/actuator/prometheus` |
 ---
 
 ## Repository Structure
 
 ```
-prometheus-basics/
+prometheus-iti/
 ├── docker-compose.yml           # Docker Compose for running Prometheus
 ├── prometheus.yml         # Scrape config (static)
+├── prometheus.service         # Prometheus System Service
+├── node_exporter.service         # Node Exporter ometheus System Service
 ├── python/
 │   ├── app.py             # Flask app exposing /metrics endpoint
 │   └── requirements.txt   # Python dependencies
@@ -108,7 +111,7 @@ The app exposes:
 | `cAdvisor`   | `localhost:8089` | `/metrics` |
 | `python_app` | `192.168.159.135:5000` | `/metrics` |
 | `spring-app` | `192.168.159.135:6666` | `/actuator/prometheus` |
-| `node-app` | `192.168.159.135:8000` | `/actuator/prometheus` |
+| `node-app` | `192.168.159.135:8000` | `/metrics` |
 | `ec2` | EC2 instances (eu-noth-1, port 9100) | `/metrics` |
 
 ---
@@ -124,5 +127,6 @@ The app exposes:
 
 - Docker & Docker Compose
 - Python 3.x
+- Node 20.x+
 - Java 17+ / Maven (for building the Java app locally)
 - Node Exporter running on target EC2 instances (port 9100)

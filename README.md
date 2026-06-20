@@ -22,7 +22,7 @@ prometheus-iti/
 ├── docker-compose.yml           # Docker Compose for running Prometheus
 ├── prometheus.yml         # Scrape config (static)
 ├── prometheus.service         # Prometheus System Service
-├── node_exporter.service         # Node Exporter ometheus System Service
+├── node_exporter.service         # Node Exporter System Service
 ├── python/
 │   ├── app.py             # Flask app exposing /metrics endpoint
 │   └── requirements.txt   # Python dependencies

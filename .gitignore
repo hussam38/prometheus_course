@@ -1,0 +1,5 @@
+node/node_modules/*
+node/package*.json
+python/venv
+DS_Store
+.env

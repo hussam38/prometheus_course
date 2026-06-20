@@ -1,5 +1,5 @@
-node/node_modules/*
-node/package*.json
+nodejs/node_modules/*
+nodejs/package*.json
 python/venv
 DS_Store
 .env
